@@ -68,9 +68,14 @@ export default function Home() {
             <span className="inline-block size-2.5 rounded-sm bg-primary" aria-hidden />
             Clearcut
           </p>
-          <a href="#method" className="text-sm text-muted-foreground underline-offset-4 hover:underline">
-            Method
-          </a>
+          <nav className="flex gap-4 text-sm text-muted-foreground">
+            <a href="/test" className="underline-offset-4 hover:underline">
+              Test set
+            </a>
+            <a href="#method" className="underline-offset-4 hover:underline">
+              Method
+            </a>
+          </nav>
         </div>
         <div className="max-w-3xl">
           <h1 className="font-heading text-4xl leading-[1.05] tracking-tight sm:text-6xl">

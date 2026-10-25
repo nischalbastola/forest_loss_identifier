@@ -15,6 +15,12 @@ npm run dev
 
 The dev server listens on port 41731. Open [http://127.0.0.1:41731](http://127.0.0.1:41731).
 
+## Test set
+
+Every held-out chip is in [`public/test-set`](public/test-set), 4,050 JPEGs, same 15% split the accuracy number uses (seed 42). The list is [`public/test-set/index.json`](public/test-set/index.json).
+
+Open `/test` in the running app to browse them, click any chip, and see the true class against the model’s call plus all ten probabilities. That page also prints the confusion matrix for the full test split.
+
 ## What you can do
 
 - Classify a held-out chip, or drop in your own image. The net reads a 64×64 center square.
