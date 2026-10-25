@@ -28,7 +28,7 @@ Open `/test` in the running app to browse them, click any chip, and see the true
 - Upload two images of the same pixel size to tile your own pair. That path has no label reference, so precision and recall stay hidden.
 - Copy a plain-text findings note from the score card.
 
-Each patch is 64×64 pixels at 10 m, which is 40.96 hectares. That figure is the patch area, not a surveyed clearing.
+Each patch is 64×64 pixels at 10 m, which is 409,600 square meters. That figure is the patch area, not a surveyed clearing.
 
 ## Retrain
 

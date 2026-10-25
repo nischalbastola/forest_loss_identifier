@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress";
 import {
   displayName,
-  formatHectares,
+  formatSquareMeters,
   formatPercent,
   isForestLoss,
   type Prediction,
@@ -249,17 +249,17 @@ export function ChangePanel({
       scan.years
         ? `${scan.cols}×${scan.rows} held-out EuroSAT chips laid out as a ${scan.years[0]} and ${scan.years[1]} pass.`
         : `${scan.cols}×${scan.rows} chips from the uploaded pair.`,
-      `Model forest loss: ${stats.modelLoss} patches, ${formatHectares(stats.modelLoss)}.`,
+      `Model forest loss: ${stats.modelLoss} patches, ${formatSquareMeters(stats.modelLoss)}.`,
     ];
     if (scan.reference) {
-      lines.push(`Label reference forest loss: ${stats.referenceLoss} patches, ${formatHectares(stats.referenceLoss)}.`);
+      lines.push(`Label reference forest loss: ${stats.referenceLoss} patches, ${formatSquareMeters(stats.referenceLoss)}.`);
       lines.push(
         `Against that reference: precision ${formatPercent(stats.precision)}, recall ${formatPercent(stats.recall)}, F1 ${formatPercent(stats.f1)}.`,
       );
     }
     if (accuracy !== null) lines.push(`Chip classifier held-out accuracy: ${formatPercent(accuracy)}.`);
     lines.push(
-      "Each patch is 64×64 pixels at 10 m, so 40.96 hectares. This practice grid is not a Global Forest Watch polygon.",
+      "Each patch is 64×64 pixels at 10 m, so 409,600 m². This practice grid is not a Global Forest Watch polygon.",
     );
     return lines.join("\n");
   }
@@ -451,14 +451,14 @@ export function ChangePanel({
               <CardHeader>
                 <CardTitle className="font-heading text-xl">Score</CardTitle>
                 <CardDescription>
-                  {scan.cols * scan.rows} patches · {formatHectares(1)} each at 10 m pixels
+                  {scan.cols * scan.rows} patches · {formatSquareMeters(1)} each at 10 m pixels
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-3 text-sm">
-                <Stat label="Model forest loss" value={`${stats.modelLoss} · ${formatHectares(stats.modelLoss)}`} />
+                <Stat label="Model forest loss" value={`${stats.modelLoss} · ${formatSquareMeters(stats.modelLoss)}`} />
                 {scan.reference ? (
                   <>
-                    <Stat label="Reference forest loss" value={`${stats.referenceLoss} · ${formatHectares(stats.referenceLoss)}`} />
+                    <Stat label="Reference forest loss" value={`${stats.referenceLoss} · ${formatSquareMeters(stats.referenceLoss)}`} />
                     <Stat label="Precision" value={formatPercent(stats.precision)} />
                     <Stat label="Recall" value={formatPercent(stats.recall)} />
                     <Stat label="F1" value={formatPercent(stats.f1)} />

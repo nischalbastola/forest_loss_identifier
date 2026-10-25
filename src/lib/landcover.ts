@@ -49,7 +49,9 @@ export const LOSS_TARGETS = new Set<string>([
   "Highway",
 ]);
 
-export const HECTARES_PER_PATCH = 40.96;
+export const METERS_PER_PIXEL = 10;
+export const PATCH_PIXELS = 64;
+export const SQUARE_METERS_PER_PATCH = PATCH_PIXELS * METERS_PER_PIXEL * PATCH_PIXELS * METERS_PER_PIXEL;
 
 export function displayName(label: string): string {
   return DISPLAY_NAME[label] ?? label;
@@ -80,7 +82,7 @@ export type SceneManifest = {
   rows: number;
   patch: number;
   metersPerPixel: number;
-  hectaresPerPatch: number;
+  squareMetersPerPatch: number;
   before: string;
   after: string;
   cells: SceneCell[];
@@ -93,9 +95,9 @@ export type GalleryItem = {
   file: string;
 };
 
-export function formatHectares(patches: number, hectaresPerPatch = HECTARES_PER_PATCH): string {
-  const value = patches * hectaresPerPatch;
-  return `${value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ha`;
+export function formatSquareMeters(patches: number, squareMetersPerPatch = SQUARE_METERS_PER_PATCH): string {
+  const value = patches * squareMetersPerPatch;
+  return `${value.toLocaleString("en-US", { maximumFractionDigits: 0 })} m²`;
 }
 
 export function formatPercent(value: number): string {

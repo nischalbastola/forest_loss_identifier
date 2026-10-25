@@ -417,7 +417,7 @@ def write_scene(test_rows: list[tuple[Path, int]]) -> None:
         "rows": GRID,
         "patch": 64,
         "metersPerPixel": 10,
-        "hectaresPerPatch": 40.96,
+        "squareMetersPerPatch": 409600,
         "before": "/scene/before.png",
         "after": "/scene/after.png",
         "cells": cells,

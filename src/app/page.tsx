@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 
 import { LabFallback } from "@/components/lab-fallback";
-import { displayName, HECTARES_PER_PATCH } from "@/lib/landcover";
+import { displayName, SQUARE_METERS_PER_PATCH } from "@/lib/landcover";
 
 const Lab = dynamic(() => import("@/components/lab").then((mod) => mod.Lab), {
   loading: () => <LabFallback />,
@@ -91,7 +91,7 @@ export default function Home() {
           <Fact term="Labeled chips" detail="27,000" />
           <Fact term="Land types" detail="10" />
           <Fact term="Held-out accuracy" detail={accuracy ?? "Measured on test chips"} />
-          <Fact term="Patch area" detail={`${HECTARES_PER_PATCH} ha`} />
+          <Fact term="Patch area" detail={`${SQUARE_METERS_PER_PATCH.toLocaleString("en-US")} m²`} />
         </dl>
       </header>
 
@@ -136,8 +136,9 @@ export default function Home() {
             </p>
             <p className="leading-relaxed text-foreground/80">
               Forest loss means the earlier chip is forest and the later chip is annual crop, permanent crop,
-              pasture, residential, industrial, or highway. At 10 m pixels, one patch covers {HECTARES_PER_PATCH}{" "}
-              hectares. That number is a patch area, not a surveyed polygon.
+              pasture, residential, industrial, or highway. At 10 m pixels, one patch covers{" "}
+              {SQUARE_METERS_PER_PATCH.toLocaleString("en-US")} square meters. That number is a patch area, not a
+              surveyed polygon.
             </p>
           </article>
           <article className="flex flex-col gap-3 lg:col-span-2">
@@ -150,7 +151,7 @@ export default function Home() {
                 Global Forest Watch
               </a>
               . Student journals named in the walkthrough, including the Journal of Emerging Investigators,
-              expect that outside check. Treat the hectares on this page as a reading of the practice grid.
+              expect that outside check. Treat the square meters on this page as a reading of the practice grid.
             </p>
           </article>
         </div>
