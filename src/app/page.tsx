@@ -156,11 +156,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="mt-12 flex flex-col gap-2 border-t border-border py-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+      <footer className="mt-12 border-t border-border py-6 text-sm text-muted-foreground">
         <p>Clearcut. Sentinel-2 land cover, read in the browser.</p>
-        <a className="underline underline-offset-4" href="https://www.instagram.com/reel/DZ_X_v2pSQP/">
-          Walkthrough this lab follows
-        </a>
       </footer>
     </div>
   );
